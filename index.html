@@ -2255,8 +2255,8 @@
 
         <!-- D. Footer Bottom -->
         <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-white/60 gap-4 text-center md:text-left">
-            <p>© 2026 Pondok Pesantren Al-Ihsan Sungai Rumbai (PPAI) Mukomuko Bengkulu. All rights reserved.</p>
-            <p>Yayasan Al Ihsan Riski Sungai Rumbai • Akta Notaris No. 177 Tahun 2018</p>
+            <p>© <span class="current-year">2026</span> Pondok Pesantren Al-Ihsan Sungai Rumbai Mukomuko Bengkulu. All rights reserved.</p>
+            <p>© <span class="current-year">2026</span> Pesantren Smart Digital. Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
@@ -2574,6 +2574,13 @@ Alamat: Desa Gading Jaya, Kec. Sungai Rumbai, Kab. Mukomuko, Bengkulu.`;
                 btnElement.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
             }, 2000);
         }
+
+        // 12. Tahun Otomatis Berjalan (Dynamic Current Year)
+        const currentYearElements = document.querySelectorAll('.current-year');
+        const activeYear = new Date().getFullYear();
+        currentYearElements.forEach(el => {
+            el.textContent = activeYear;
+        });
     </script>
 </body>
 </html>
