@@ -260,6 +260,27 @@
             transform: scale(0.95);
         }
 
+        /* Masonry Grid Row Spans */
+        .row-span-1 { grid-row: span 1; }
+        .row-span-2 { grid-row: span 2; }
+        .row-span-3 { grid-row: span 3; }
+        
+        #gallery-container {
+            grid-auto-rows: 180px;
+        }
+        
+        @media (min-width: 640px) {
+            #gallery-container {
+                grid-auto-rows: 200px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            #gallery-container {
+                grid-auto-rows: 220px;
+            }
+        }
+
         /* Pulse ring animation */
         @keyframes pulse-ring {
             0% { transform: scale(0.95); opacity: 0.8; }
@@ -1530,7 +1551,7 @@
                 </div>
 
                 <!-- B. Filter Kategori Tab -->
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-10 reveal">
+                <!-- <div class="flex flex-wrap items-center justify-center gap-2 mb-10 reveal">
                     <button onclick="filterGallery('all', this)" class="gallery-tab-btn active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-primary text-white shadow-md">
                         Semua Foto
                     </button>
@@ -1546,164 +1567,229 @@
                     <button onclick="filterGallery('santri', this)" class="gallery-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-surface text-gray-700 hover:bg-secondary/20 hover:text-secondary-dark">
                         Santri & Dewan Guru
                     </button>
-                </div>
+                </div> -->
 
-                <!-- C. Gallery Grid -->
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" id="gallery-container">
+                <!-- C. Gallery Grid (Masonry Layout) -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-max gap-4 sm:gap-6" id="gallery-container">
                     
                     <!-- Item 1: Foto Bersama Putra -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
                          data-category="santri" 
                          onclick="openLightbox('Media/Foto%20Bersama%20Putra.webp', 'Santri Putra Pondok Pesantren Al-Ihsan Sungai Rumbai')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Foto%20Bersama%20Putra.webp" alt="Santri Putra Pondok Pesantren Al-Ihsan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Santri Putra Al-Ihsan</p>
-                            <span class="text-[10px] text-secondary font-medium">Santri Mukim</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Santri Putra Al-Ihsan</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Santri Mukim</span>
                         </div>
                     </div>
 
                     <!-- Item 2: Foto Bersama Putri -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="santri" 
                          onclick="openLightbox('Media/Foto%20bersama%20putri.webp', 'Santriwati Putri Pondok Pesantren Al-Ihsan Sungai Rumbai')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Foto%20bersama%20putri.webp" alt="Santriwati Putri Al-Ihsan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Santriwati Putri Al-Ihsan</p>
-                            <span class="text-[10px] text-secondary font-medium">Santriwati Mukim</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Santriwati Putri Al-Ihsan</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Santriwati Mukim</span>
                         </div>
                     </div>
 
                     <!-- Item 3: Dewan Guru / Asatidz -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="santri" 
                          onclick="openLightbox('Media/Para%20Guru.webp', 'Dewan Asatidz & Guru Pondok Pesantren Al-Ihsan')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Para%20Guru.webp" alt="Dewan Asatidz Guru Al-Ihsan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Dewan Asatidz & Asatidzah</p>
-                            <span class="text-[10px] text-secondary font-medium">39 Tenaga Pendidik</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Dewan Asatidz & Asatidzah</p>
+                            <span class="text-[10px] text-secondary-light font-medium">39 Tenaga Pendidik</span>
                         </div>
                     </div>
 
                     <!-- Item 4: Halaqah Qur'an Putri -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
                          data-category="belajar" 
                          onclick="openLightbox('Media/Al%20Quran%20Putri.webp', 'Halaqah Tahfidzul & Tahsinul Qur\'an')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Al%20Quran%20Putri.webp" alt="Halaqah Al-Qur'an" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Halaqah Al-Qur'an</p>
-                            <span class="text-[10px] text-secondary font-medium">Tahfidz & Tahsin</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Halaqah Al-Qur'an</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Tahfidz & Tahsin</span>
                         </div>
                     </div>
 
                     <!-- Item 5: Kajian Kitab Kuning -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="belajar" 
                          onclick="openLightbox('Media/Kajian%20Putra%202.webp', 'Kajian Kitab Kuning Santri Putra')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Kajian%20Putra%202.webp" alt="Kajian Kitab Putra" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Kajian Kitab Kuning</p>
-                            <span class="text-[10px] text-secondary font-medium">Dirosah Islamiyah</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Kajian Kitab Kuning</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Dirosah Islamiyah</span>
                         </div>
                     </div>
 
                     <!-- Item 6: Lab Komputer Putri -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
                          data-category="belajar" 
                          onclick="openLightbox('Media/Lab%20Kom%20Putri.webp', 'Praktikum Komputer Santriwati')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Lab%20Kom%20Putri.webp" alt="Lab Komputer Putri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Lab Komputer Santriwati</p>
-                            <span class="text-[10px] text-secondary font-medium">Praktikum Digital</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Lab Komputer Santriwati</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Praktikum Digital</span>
                         </div>
                     </div>
 
                     <!-- Item 7: Grup Hadroh MA -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="seni" 
                          onclick="openLightbox('Media/Grup%20Hadroh%20MA.webp', 'Grup Hadroh Sholawat MA Al-Ihsan')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Grup%20Hadroh%20MA.webp" alt="Grup Hadroh MA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Grup Hadroh MA</p>
-                            <span class="text-[10px] text-secondary font-medium">Seni Budaya Sholawat</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Grup Hadroh MA</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Seni Budaya Sholawat</span>
                         </div>
                     </div>
 
                     <!-- Item 8: Pentas Seni Santri -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
                          data-category="seni" 
                          onclick="openLightbox('Media/Pentas%20santri%20ceramah.webp', 'Panggung Pentas Kreativitas Seni Santri')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Pentas%20santri%20ceramah.webp" alt="Pentas Santri Ceramah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Pentas Kreativitas Santri</p>
-                            <span class="text-[10px] text-secondary font-medium">Panggung Seni Islami</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Pentas Kreativitas Santri</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Panggung Seni Islami</span>
                         </div>
                     </div>
 
                     <!-- Item 9: Pencak Silat Santri -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="ekstra" 
                          onclick="openLightbox('Media/Silat%20(lanscape).webp', 'Latihan Seni Bela Diri Pencak Silat')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Silat%20(lanscape).webp" alt="Pencak Silat Santri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
                             <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Pencak Silat Santri</p>
                             <span class="text-[10px] text-secondary font-medium">Bela Diri Tradisi</span>
                         </div>
                     </div>
 
                     <!-- Item 10: Panahan Putri -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="ekstra" 
                          onclick="openLightbox('Media/Panahan%20Putri.webp', 'Olahraga Sunnah Panahan Santri Putri')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Panahan%20Putri.webp" alt="Panahan Putri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Panahan Sunnah Putri</p>
-                            <span class="text-[10px] text-secondary font-medium">Fokus & Ketangkasan</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Panahan Sunnah Putri</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Fokus & Ketangkasan</span>
                         </div>
                     </div>
 
                     <!-- Item 11: Voli Santri Putri MA -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
                          data-category="ekstra" 
                          onclick="openLightbox('Media/Voly%20MA%20Putri.webp', 'Olahraga Voli Santriwati MA')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Voly%20MA%20Putri.webp" alt="Voli Putri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Voli Santriwati MA</p>
-                            <span class="text-[10px] text-secondary font-medium">Kebugaran Jasmani</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Voli Santriwati MA</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Kebugaran Jasmani</span>
                         </div>
                     </div>
 
                     <!-- Item 12: Drone Kawasan Pondok -->
-                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative" 
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
                          data-category="all" 
                          onclick="openLightbox('Media/Drone%20Upacara.webp', 'Lanskap Udara Pondok Pesantren Al-Ihsan Sungai Rumbai')">
-                        <div class="aspect-video sm:aspect-square overflow-hidden">
+                        <div class="h-full overflow-hidden">
                             <img src="Media/Drone%20Upacara.webp" alt="Drone Kawasan Al-Ihsan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
-                        <div class="p-3 text-center">
-                            <p class="font-serif font-bold text-xs sm:text-sm text-brand-forest truncate">Lanskap Kawasan Pondok</p>
-                            <span class="text-[10px] text-secondary font-medium">Lahan 29.480 m&sup2;</span>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Lanskap Kawasan Pondok</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Lahan 29.480 m&sup2;</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 13: Eksplorasi Laboratorium -->
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
+                         data-category="belajar" 
+                         onclick="openLightbox('Media/Eksplorasi%20Laboratorium%20%26%20Pameran%20Inovasi%20Teknologi.webp', 'Eksplorasi Laboratorium & Pameran Inovasi Teknologi')">
+                        <div class="h-full overflow-hidden">
+                            <img src="Media/Eksplorasi%20Laboratorium%20%26%20Pameran%20Inovasi%20Teknologi.webp" alt="Eksplorasi Laboratorium" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Eksplorasi Laboratorium</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Pameran Inovasi Teknologi</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 14: Eksplorasi Lab 2 -->
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
+                         data-category="belajar" 
+                         onclick="openLightbox('Media/Eksplorasi%20Laboratorium%20%26%20Pameran%20Inovasi%20Teknologi%202.webp', 'Eksplorasi Laboratorium & Pameran Inovasi Teknologi')">
+                        <div class="h-full overflow-hidden">
+                            <img src="Media/Eksplorasi%20Laboratorium%20%26%20Pameran%20Inovasi%20Teknologi%202.webp" alt="Eksplorasi Lab Teknologi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Inovasi Lab Teknologi</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Kreativitas Santri</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 15: Foto Bersama Seminar -->
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-2" 
+                         data-category="seni" 
+                         onclick="openLightbox('Media/Foto%20bersama%20Seminar%20%26%20Konferensi%20Akademik.webp', 'Foto Bersama Seminar & Konferensi Akademik')">
+                        <div class="h-full overflow-hidden">
+                            <img src="Media/Foto%20bersama%20Seminar%20%26%20Konferensi%20Akademik.webp" alt="Foto Bersama Seminar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Seminar & Konferensi Akademik</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Pengembangan Wawasan</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 16: Seminar Akademik -->
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
+                         data-category="seni" 
+                         onclick="openLightbox('Media/Seminar%20%26%20Konferensi%20Akademik.webp', 'Seminar & Konferensi Akademik Santri')">
+                        <div class="h-full overflow-hidden">
+                            <img src="Media/Seminar%20%26%20Konferensi%20Akademik.webp" alt="Seminar Akademik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Konferensi Akademik Santri</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Forum Diskusi Ilmiah</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 17: Talent Seminar -->
+                    <div class="gallery-item reveal group rounded-2xl overflow-hidden bg-brand-surface border border-brand-forest/5 shadow-sm hover:shadow-xl transition-all cursor-pointer relative row-span-1" 
+                         data-category="seni" 
+                         onclick="openLightbox('Media/Talent%20Seminar%20%26%20Konferensi%20Akademik.webp', 'Talent Show Seminar & Konferensi Akademik')">
+                        <div class="h-full overflow-hidden">
+                            <img src="Media/Talent%20Seminar%20%26%20Konferensi%20Akademik.webp" alt="Talent Seminar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-brand-forest/90 to-transparent text-center">
+                            <p class="font-serif font-bold text-xs sm:text-sm text-white truncate">Talent Show Akademik</p>
+                            <span class="text-[10px] text-secondary-light font-medium">Kreativitas & Bakat Santri</span>
                         </div>
                     </div>
 
