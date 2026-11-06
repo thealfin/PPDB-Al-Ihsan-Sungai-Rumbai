@@ -55,3 +55,8 @@ Nama : Ustad Jalil M.Pd
 
 Tulisan Yayasan di pojok kiri atas kurang lengkap 
 Harusnya Yayasan Al Ihsan Riski Sungai Rumbai
+
+
+Ustad ..yang ustad Wahyudin A.Md 
+Ustadzah Kurnia Kartika Syahroni, Lc 
+Yang nmr wa konsultasi itu buatkan ustad Wahyudin, A.Md aja gak usah ustad jalil
